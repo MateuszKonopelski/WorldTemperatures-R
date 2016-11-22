@@ -1,3 +1,5 @@
+#Example function with if inside to print hist graph.
+
 sumfun<- function(x, display =FALSE, type=0, prob=FALSE) {
   if (display == FALSE) {
     cat("Summary of input:\n")
