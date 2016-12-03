@@ -18,7 +18,7 @@ Process devided into steps (all in /CODE/MineDevelopment/):
 3. Analysis
 
 
-Development in progress.
+#Development in progress.
 
 Existing challanges:
 
