@@ -40,9 +40,6 @@ system.time(
   
 ) # close after system time
 
-TimeEnd <- Sys.time()
+source("~/Documents/PROJECTS/Temperature_Data/Code/R_CleanData.R")
 
-Method2_TimeExec <- TimeEnd - TimeStart
-rm("TimeStart","TimeEnd")
-#Method2_TimeExec
 
