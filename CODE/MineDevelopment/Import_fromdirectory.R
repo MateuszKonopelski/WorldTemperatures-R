@@ -29,7 +29,7 @@ system.time(
     }  else { #If does
       temp_Data <- read_fwf(file, fwf_widths(ColWidths))
       
-      Data_Raw <- rbindlist(list(Data_Raw, temp_Data))
+      Data_Raw <- rbind(Data_Raw, temp_Data)
       
       count <- count + 1
       rm(temp_Data)
