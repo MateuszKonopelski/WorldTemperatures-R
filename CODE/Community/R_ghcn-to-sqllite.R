@@ -1,5 +1,7 @@
 #code found on: 
-#It generates error on: loadAsCSV function in column definition
+#It generates error on: loadAsCSV function in column definition:
+#" Error in scan(file, what, nmax, sep, dec, quote, skip, nlines, na.strings,  : 
+#  scan() expected 'an integer', got 'a'"
 
 
 
