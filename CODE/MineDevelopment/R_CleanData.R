@@ -1,8 +1,9 @@
-
 ################################################################################
 ################################################################################
 
 #R_CleanData
+
+#setwd("~/Documents/PROJECTS/Temperature_Data/Data/Test_ghcnd_all/100")
 
 # function to convert the wide-form (days across columns) GHCN data into
 # long form (unique row for each day*element); note that all indexing
@@ -26,11 +27,14 @@ wideToLong <- function(dat, days) {
   out
 }
 
+DAYS <- lapply(seq(from=5, to=4 + 4*31, by=4), function(i) i:(i+3))
+
 #Apply function to Data data frame
 Data <- wideToLong(Data_Raw, DAYS)
 
 #Clean Data Types and names
-transform(Data, V5 = as.integer(V5)) #Transfrom V5 to integer 
+#transform(Data, V5 = as.integer(V5)) #Transfrom V5 to integer 
+Data["V5"] <- lapply(Data["V5"], as.integer)
 Data[c("V6","V7","V8","V9")] <-lapply(Data[c("V6","V7","V8","V9")], as.factor) #Transorm other to factor
 
 #Change the order of columns
@@ -43,8 +47,9 @@ colnames(Data) <- c("ID","STATION", "Year", "Month", "Day","Observation"
 
 
 #Clean Memory
-for (variable in c("col_to_factor", "ColNames", "file", "dailies", "DAYS", "temp_Data")) {
+for (variable in c("col_to_factor", "ColNames", file, "dailies", "DAYS", "temp_Data")) {
   if (exists(variable)== TRUE) {rm(variable)}
 }
-#InspectData
-str(Data)
+
+
+source("~/Documents/PROJECTS/Temperature_Data/Code/R_Export_toSQL.R")
